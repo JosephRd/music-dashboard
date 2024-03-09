@@ -1,38 +1,37 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+/* :root{
+  scroll-behavior: : smooth;
+  --primary: #4154f1;
+  --second: #717ff5;
+  --bgColor: #f6f9ff;
+} */
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #444444;
+  background: #f6f9ff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* .ant-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* .addButton:hover {
   color: white;
-}
+} */
 
-.App-link {
-  color: #61dafb;
-}
+/* .ant-btn:hover {
+  Define your hover styles here
+  background-color: black;
+  border-color: #1890ff;
+  color: #fff;
+} */
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Nunito", sans-serif;
 }
