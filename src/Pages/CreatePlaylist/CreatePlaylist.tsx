@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Col, Input, Row, Space, Card, Typography } from "antd";
+import { Button, Col, Input, Row, Space, Card, Typography, message } from "antd";
 import Axios from "axios";
 import Meta from "antd/es/card/Meta";
 import { HeartTwoTone, LeftCircleOutlined } from "@ant-design/icons";
@@ -56,53 +56,32 @@ function CreatePlaylist() {
       // var albums = await fetch("https://api.spotify.com/v1/artists/" + artistID + "/top-tracks?country=US", searchParameters)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setAlbumList(data.items);
       });
   }
 
-  //   console.log(albumList);
-
-  //   console.log(artist, album, year, totalTracks);
   const runInOrder = async (artistName: string, albumName: string, releaseDate: string, totalTracks: number, covers: string) => {
     try {
-      // Run function 1
       setArtist(artistName);
       setAlbum(albumName);
       setYear(releaseDate);
       setTotalTracks(totalTracks);
       setCover(covers);
 
-      // await function1(artistName, albumName, releaseDate, totalTracks, covers);
-      // await addPlaylist();
+      await Axios.post("http://localhost:3001/create", {
+        artist: artistName,
+        total_tracks: totalTracks,
+        album: albumName,
+        year: releaseDate,
+        cover: covers,
+      });
 
-      console.log("All functions executed in order");
+      console.log("Data sent successfully");
     } catch (error) {
       console.error("Error occurred:", error);
     }
   };
-  useEffect(() => {
-    Axios.post("http://localhost:3001/create", {
-      artist: artist,
-      total_tracks: totalTracks,
-      album: album,
-      year: year,
-      cover: cover,
-    }).then(() => {
-      console.log("Success");
-    });
-  }, [artist, album, year, totalTracks, cover]);
-  // const addPlaylist = async () => {
-  //   Axios.post("http://localhost:3001/create", {
-  //     artist: artist,
-  //     total_tracks: totalTracks,
-  //     album: album,
-  //     year: year,
-  //     cover: cover,
-  //   }).then(() => {
-  //     console.log("Success");
-  //   });
-  // };
 
   return (
     <>
@@ -168,6 +147,7 @@ function CreatePlaylist() {
                   icon={<HeartTwoTone className="addButton" twoToneColor="#eb2f96" />}
                   onClick={() => {
                     runInOrder(album.artists[0].name, album.name, album.release_date, album.total_tracks, album.images[0].url);
+                    message.info("Added to your playlist");
                   }}
                 >
                   Add to my playlist
@@ -177,47 +157,6 @@ function CreatePlaylist() {
           );
         })}
       </Row>
-      {/* <form action="">
-        <Row gutter={16}>
-          <Col className="gutter-row" span={6}>
-            <label>Artist Name:</label>
-            <input
-              type="text"
-              onChange={(event) => {
-                setArtist(event.target.value);
-              }}
-            />
-          </Col>
-          <Col className="gutter-row" span={6}>
-            <label>Song:</label>
-            <input
-              type="text"
-              onChange={(event) => {
-                setSong(event.target.value);
-              }}
-            />
-          </Col>
-          <Col className="gutter-row" span={6}>
-            <label>Album:</label>
-            <input
-              type="text"
-              onChange={(event) => {
-                setAlbum(event.target.value);
-              }}
-            />
-          </Col>
-          <Col className="gutter-row" span={6}>
-            <label>Year:</label>
-            <input
-              type="text"
-              onChange={(event) => {
-                setYear(event.target.value);
-              }}
-            />
-          </Col>
-        </Row>
-        <button onClick={addPlaylist}>Add Playlist</button>
-      </form> */}
     </>
   );
 }

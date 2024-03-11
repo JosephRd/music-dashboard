@@ -39,7 +39,7 @@ const DashboardChart: React.FC<DashboardChartProps> = (props) => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-    Axios.get(`http://localhost:3001/get-table-data`)
+    Axios.get(`http://localhost:3001/get-table-data/${props.filter}`)
       .then((res) => {
         setTableData(res.data);
       })
@@ -91,7 +91,7 @@ const DashboardChart: React.FC<DashboardChartProps> = (props) => {
         <Col className="mt-5" span={24}>
           <div className="card">
             <div className="card-body">
-              <h1 style={{ fontSize: "24px", fontWeight: "400", color: "#012970" }}>List of Song</h1>
+              <h1 style={{ fontSize: "24px", fontWeight: "400", color: "#012970" }}>List of Song per Genre</h1>
               <div style={{ padding: "1rem" }}>
                 <TableV1 data={tableData} />
               </div>

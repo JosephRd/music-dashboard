@@ -35,9 +35,19 @@ app.post("/create", (req, res) => {
     }
   );
 });
+app.delete("/delete/:id", (req, res) => {
+  const id = req.params.id;
+  db.query("DELETE FROM playlist where playlist_id = ?", id, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send("Values Inserted");
+    }
+  });
+});
 
 app.get("/show", (req, res) => {
-  db.query("SELECT * FROM playlist where total_tracks != 0", (err, result) => {
+  db.query("SELECT * FROM playlist", (err, result) => {
     if (err) {
       console.log(err);
     } else {
@@ -126,12 +136,17 @@ app.get("/get-genre", (req, res) => {
   });
 });
 
-app.get("/get-table-data", (req, res) => {
-  db.query("select artist, title, genre, popularity from best_song where year = '2023' order by popularity desc", (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
+app.get("/get-table-data/:genre", (req, res) => {
+  const genre = req.params.genre;
+  db.query(
+    "select artist, title, genre, popularity from best_song where genre = ? and year = '2023' order by popularity desc",
+    genre,
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
     }
-  });
+  );
 });

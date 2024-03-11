@@ -1,8 +1,18 @@
 import React, { useState } from "react";
-import { MenuFoldOutlined, MenuUnfoldOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
+import {
+  CustomerServiceOutlined,
+  HomeOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  UploadOutlined,
+  UserOutlined,
+  VideoCameraOutlined,
+} from "@ant-design/icons";
 import { Layout, Menu, Button, theme } from "antd";
 import AppRoutes from "../Routes/index";
 import { useNavigate } from "react-router-dom";
+import Footer from "../Footer/Footer";
+import "./HeaderSidebar.css";
 const { Header, Sider, Content } = Layout;
 const App = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -18,24 +28,25 @@ const App = () => {
     >
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="ant-layout-sider-children">
-          <div className="demo-logo-vertical">Music Dashboard</div>
+          <div className="demo-logo-vertical" id="titleDashboard">
+            <h2>Music 2023 Dashboard</h2>
+          </div>
           <Menu
-            style={{ marginTop: "40vh" }}
+            style={{ marginTop: "35vh" }}
             theme="dark"
             mode="inline"
-            // defaultSelectedKeys={["1"]}
             onClick={(item: any) => {
               navigate(item.key);
             }}
             items={[
               {
                 key: "/",
-                icon: <UserOutlined />,
+                icon: <HomeOutlined />,
                 label: "Overview",
               },
               {
                 key: "/playlists",
-                icon: <VideoCameraOutlined />,
+                icon: <CustomerServiceOutlined />,
                 label: "My Playlist",
               },
               // {
@@ -77,6 +88,7 @@ const App = () => {
           }}
         >
           <AppRoutes />
+          <Footer />
         </Content>
       </Layout>
     </Layout>

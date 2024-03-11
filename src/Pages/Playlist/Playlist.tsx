@@ -1,26 +1,31 @@
 import { useEffect, useState } from "react";
-import React from "react";
-// import { Col, Row } from "antd";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 import { Button, Col, Row, Typography } from "antd";
-import { CaretRightOutlined } from "@ant-design/icons";
+import { CaretRightOutlined, DeleteOutlined } from "@ant-design/icons";
 
 function Playlists() {
   const [playlistList, setPlaylistList] = useState([]);
   const [header, setHeader] = useState(false);
   const [judul, setJudul] = useState(false);
 
-  // const getPlaylists = () => {
   useEffect(() => {
     Axios.get("http://localhost:3001/show").then((response) => {
       setPlaylistList(response.data);
     });
-  }, []);
+  }, [playlistList]);
 
-  // };
+  const deleteEmployee = (id: any) => {
+    Axios.delete(`http://localhost:3001/delete/${id}`).then((response) => {
+      setPlaylistList(
+        playlistList.filter((val: any) => {
+          return val.id != id;
+        })
+      );
+    });
+  };
 
-  console.log(playlistList);
+  // console.log(playlistList);
 
   useEffect(() => {
     if (playlistList.length > 0) {
@@ -75,11 +80,14 @@ function Playlists() {
               <Col className="gutter-row" span={6}>
                 <Typography.Text strong>Album</Typography.Text>
               </Col>
-              <Col className="gutter-row" span={6}>
+              <Col className="gutter-row" span={5}>
                 <Typography.Text strong>Date Release</Typography.Text>
               </Col>
-              <Col className="gutter-row" span={6}>
+              <Col className="gutter-row" span={5}>
                 <Typography.Text strong>Total Tracks</Typography.Text>
+              </Col>
+              <Col className="gutter-row" span={2}>
+                <Typography.Text strong>Action</Typography.Text>
               </Col>
             </Row>
           </Col>
@@ -104,48 +112,24 @@ function Playlists() {
                 <Col className="gutter-row" span={6}>
                   <div>{val["album"]}</div>
                 </Col>
-                <Col className="gutter-row" span={6}>
+                <Col className="gutter-row" span={5}>
                   <div>{val["year"]}</div>
                 </Col>
-                <Col className="gutter-row" span={6}>
+                <Col className="gutter-row" span={5}>
                   <div>{val["total_tracks"]}</div>
+                </Col>
+                <Col className="gutter-row" span={2}>
+                  <Button
+                    icon={<DeleteOutlined style={{ color: "white" }} />}
+                    style={{ backgroundColor: "red" }}
+                    onClick={() => {
+                      deleteEmployee(val["playlist_id"]);
+                    }}
+                  ></Button>
                 </Col>
               </Row>
             </Col>
           </Row>
-          // <div>
-          //   <div>
-          //     <h3>Artist: {val["artist"]}</h3>
-          //     <h3>TotalTracks: {val["total_tracks"]}</h3>
-          //     <h3>Album: {val["album"]}</h3>
-          //     <h3>Year: {val["year"]}</h3>
-          //   </div>
-          //   {/* <div>
-          //       <input
-          //         type="text"
-          //         placeholder="2000..."
-          //         onChange={(event) => {
-          //           setNewWage(event.target.value);
-          //         }}
-          //       />
-          //       <button
-          //         onClick={() => {
-          //           updateEmployeeWage(val.id);
-          //         }}
-          //       >
-          //         {" "}
-          //         Update
-          //       </button>
-
-          //       <button
-          //         onClick={() => {
-          //           deleteEmployee(val.id);
-          //         }}
-          //       >
-          //         Delete
-          //       </button>
-          //     </div> */}
-          // </div>
         );
       })}
     </>
