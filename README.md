@@ -1,46 +1,39 @@
-# Getting Started with Create React App
+# Getting Started with my Music 2023 Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created using React Js, MySQL, and Node Js.
+For the library I'm using Ant Design for the layout, structure, and styling, E-charts for visualizing data, and Bootstrap for additional styling.
 
-## Available Scripts
+## Feature
 
-In the project directory, you can run:
+In this project, there are some feature such as:
 
-### `npm start`
+### `Home`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![home 1](https://github.com/JosephRd/music-dashboard/assets/75560390/966ae9bd-24e1-49d8-ab07-98761d0dcafc)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+On the left of the page, there is a sidebar to display some menus on this website, there are Home/Dashboard and My Playlist.
+Let's move on to the content side of things. There are some Card components at the top of the screen that feature popular genres including R&B, Pop, K-Pop, and Hip Hop. Each card shows the number of popularity artists, their names, and the names of their songs.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![home 2](https://github.com/JosephRd/music-dashboard/assets/75560390/7a7622b4-82cd-4b84-b93b-eefb7a51ef96)
 
-### `npm run build`
+![home 3](https://github.com/JosephRd/music-dashboard/assets/75560390/bfbbae1d-5501-4895-ac1d-9214bcfc1001)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+I'm doing some data analysis and creating some charts to help visualize the data underneath the cards component, for example Artist by Genre, Song by Genre, Song by Genre Distribution, and also a table that shows a list of the song including the artist name, song name, genre, and popularity.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+There is a dropdown option at the top of the charts that allows you to filter the data by genre.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `My Playlist`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![my playlist](https://github.com/JosephRd/music-dashboard/assets/75560390/cd1a1682-998d-4747-9967-729c53bba585)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This page displays the playlist that we previously created on the "Create my Playlist" page.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+
