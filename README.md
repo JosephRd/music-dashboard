@@ -29,7 +29,21 @@ There is a dropdown option at the top of the charts that allows you to filter th
 
 ![my playlist](https://github.com/JosephRd/music-dashboard/assets/75560390/cd1a1682-998d-4747-9967-729c53bba585)
 
-This page displays the playlist that we previously created on the "Create my Playlist" page.
+This page displays the playlist that we previously created on the "Create my Playlist" page, including name of the artist, album, data release, and total tracks. There is a delete option in the right corner to remove any playlists that we no longer enjoy.
+
+![dont have playlist](https://github.com/JosephRd/music-dashboard/assets/75560390/339069fb-7385-4dfa-8f31-c0af9eebbb00)
+
+There is some notice when we don't have a playlist. If you click the button to create a playlist, it will direct you to the "Create my Playlist" page.
+
+
+### `Create my Playlist`
+
+![create-playlist](https://github.com/JosephRd/music-dashboard/assets/75560390/18b984c0-0720-43b9-8699-db0037b10805)
+On this page, we can create a playlist by searching for the artist using the form at the top. The list of songs was generated using the Spotify API. After that, you can select the artist by clicking the button underneath the card, and the song will be saved to your playlist.
+
+
+
+
 
 
 
