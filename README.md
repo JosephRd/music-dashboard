@@ -8,4 +8,5 @@ In the project directory, you can run:
 
 ### `npm start`
 
-![Uploading home 1.PNG…]()
+![home 1](https://github.com/JosephRd/music-dashboard/assets/75560390/dff75bfc-7282-4143-b2a0-a1dbd166e166)
+
