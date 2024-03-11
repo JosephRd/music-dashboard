@@ -49,11 +49,6 @@ const App = () => {
                 icon: <CustomerServiceOutlined />,
                 label: "My Playlist",
               },
-              // {
-              //   key: "3",
-              //   icon: <UploadOutlined />,
-              //   label: "nav 3",
-              // },
             ]}
           />
         </div>
@@ -82,9 +77,6 @@ const App = () => {
             padding: 24,
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
-            // background: "rgb(2, 0, 36)",
-            // background: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 30%, rgba(0,212,255,1) 100%)",
-            // background: "linear-gradient(to bottom right, black, #121286)",
           }}
         >
           <AppRoutes />

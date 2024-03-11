@@ -8,7 +8,6 @@ const Dashboard = () => {
   const [kpop, setKpop] = useState<string[]>([]);
   const [hiphop, setHiphop] = useState<string[]>([]);
   const [rb, setRb] = useState<string[]>([]);
-  // const [isChartReady, setIsChartReady] = useState(false);
 
   useEffect(() => {
     Axios.get("http://localhost:3001/top-pop")

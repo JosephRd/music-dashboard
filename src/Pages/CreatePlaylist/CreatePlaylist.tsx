@@ -7,12 +7,6 @@ import "./CreatePlaylist.css";
 import { Link } from "react-router-dom";
 
 function CreatePlaylist() {
-  const [artist, setArtist] = useState("");
-  const [totalTracks, setTotalTracks] = useState(0);
-  const [album, setAlbum] = useState("");
-  const [year, setYear] = useState("");
-  const [cover, setCover] = useState("");
-
   const [searchArtist, setSearchArtist] = useState("");
   const [accessToken, setAccessToken] = useState("");
   const [albumList, setAlbumList] = useState<any[]>([]);
@@ -35,8 +29,6 @@ function CreatePlaylist() {
   }, []);
 
   async function search() {
-    // console.log("searching for " + searchArtist);
-
     //request using search to get artist ID
     var searchParameters = {
       method: "GET",
@@ -63,12 +55,6 @@ function CreatePlaylist() {
 
   const runInOrder = async (artistName: string, albumName: string, releaseDate: string, totalTracks: number, covers: string) => {
     try {
-      setArtist(artistName);
-      setAlbum(albumName);
-      setYear(releaseDate);
-      setTotalTracks(totalTracks);
-      setCover(covers);
-
       await Axios.post("http://localhost:3001/create", {
         artist: artistName,
         total_tracks: totalTracks,

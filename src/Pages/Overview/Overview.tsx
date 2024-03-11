@@ -4,7 +4,6 @@ import DashboardCard from "./Dashboard/DashboardCard";
 import DashboardChart from "./Dashboard/DashboardChart";
 import { Col, Row, Select, Typography } from "antd";
 import Axios from "axios";
-import Footer from "../../components/Footer/Footer";
 
 function Overview() {
   const [genre, setGenre] = useState("pop");
