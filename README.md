@@ -14,8 +14,17 @@ In this project, there are some feature such as:
 On the left of the page, there is a sidebar to display some menus on this website, there are Home/Dashboard and My Playlist.
 Let's move on to the content side of things. There are some Card components at the top of the screen that feature popular genres including R&B, Pop, K-Pop, and Hip Hop. Each card shows the number of popularity artists, their names, and the names of their songs.
 
+
 ![home 2](https://github.com/JosephRd/music-dashboard/assets/75560390/7a7622b4-82cd-4b84-b93b-eefb7a51ef96)
+
 ![home 3](https://github.com/JosephRd/music-dashboard/assets/75560390/bfbbae1d-5501-4895-ac1d-9214bcfc1001)
+
+
+I'm doing some data analysis and creating some charts to help visualize the data underneath the cards component, for example Artist by Genre, Song by Genre, Song by Genre Distribution, and also a table that shows a list of the song including the artist name, song name, genre, and popularity.
+
+There is a dropdown option at the top of the charts that allows you to filter the data by genre.
+
+
 
 
 
